@@ -2,7 +2,7 @@ const chalk = require('chalk');
 
 var formatStringTraits = {
     color: function(col) {
-        this.str = chalk.keyword(col)(this.str);
+        this.str = chalk[col](this.str);
         return this;
     },
     underline: function() {

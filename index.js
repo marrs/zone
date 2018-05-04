@@ -29,7 +29,7 @@ function fetchJson(uri) {
 }
 
 function tableHeader(headerData) {
-    return headerData.map(item => headerColor(item));
+    return headerData.map(item => chalk[titleColor](item));
 }
 
 function printQA(question, answer) {
@@ -42,8 +42,8 @@ function printQA(question, answer) {
 const unknownPositions = ['DE/DT'];
 
 // titleColor needs to be set according to terminal background color.
-const titleColor = 'brown';
-const headerColor = chalk.keyword(titleColor);
+const titleColor = 'cyan';
+const errorColor = 'magenta';
 
 // The API does not give us a set of long descriptions for the various
 // positions so we provide them here.
@@ -134,7 +134,7 @@ function retrieveData() {
                     arrestsForCrime: itemCrime.arrest_count
                 };
             }).catch(err => {
-                console.log(fmt.string(`Error fetching ${itemUri}`).color('purple').str);
+                console.log(fmt.string(`Error fetching ${itemUri}`).color(errorColor).str);
                 return Promise.resolve({
                     position: itemPosition.position,
                     totalArrests: itemPosition.arrest_count,
@@ -182,7 +182,7 @@ var displayTable = new Promise((resolve, reject) => {
         var tableData = [header];
 
         print(table(tableData));
-        print(fmt.string('NFL data could not be retrieved').center().color('purple').str);
+        print(fmt.string('NFL data could not be retrieved').center().color(errorColor).str);
         print('');
         return resolve();
     });
