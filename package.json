@@ -4,5 +4,10 @@
   "main": "index.js",
   "author": "David Marrs",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "node-fetch": "^2.1.2",
+    "table": "^4.0.3"
+  }
 }
