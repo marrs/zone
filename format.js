@@ -35,9 +35,9 @@ var formatTraits = {
     }
 }
 
-function format(lineLength) {
+function format(params) {
     var obj = Object.create(formatTraits);
-    obj.lineLength = lineLength;
+    obj.lineLength = params.lineLength;
     return obj;
 }
 
